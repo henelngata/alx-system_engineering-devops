@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -ld */
+chmod 751 my_dir
