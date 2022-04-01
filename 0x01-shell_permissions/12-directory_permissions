@@ -1,2 +1,2 @@
 #!/bin/bash
-find ./my_dir  -type d | xargs chmod 751
+chmod 751 ./my_dir
