@@ -1,2 +1,2 @@
 #!/bin/bash
-uniq 
+echo "hello">lists | uniq lists |sort lists
