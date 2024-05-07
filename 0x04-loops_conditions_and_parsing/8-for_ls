@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Loop through files in the current directory
+LIST="$(ls)"
+for file in $LIST
+do
+    if [[ ! "$file" == .* && -f "$file" ]]; then
+       
+        name=$(echo "$file" | cut -d '-' -f 2-)
+       
+        echo "$name"
+    fi
+done
+
