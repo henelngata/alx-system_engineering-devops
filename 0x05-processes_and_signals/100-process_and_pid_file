@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Path to the PID file
+PID_FILE="/var/run/myscript.pid"
+
+# Create the PID file containing the script's PID
+echo $$ > "$PID_FILE"
+
+# Trap SIGTERM signal to display a message and then terminate
+trap 'echo "I hate the kill command"; rm -f "$PID_FILE"; exit 0' SIGTERM
+
+# Trap SIGINT signal to display a message but continue running
+trap 'echo "Y U no love me?!"; ' SIGINT
+
+# Trap SIGQUIT signal to delete the PID file and terminate
+trap 'rm -f "$PID_FILE"; exit 0' SIGQUIT
+
+# Display the message indefinitely
+while true; do
+    echo "To infinity and beyond"
+    sleep 1
+done
