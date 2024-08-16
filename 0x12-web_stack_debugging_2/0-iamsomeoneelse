@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# accepts one argument
+su -c "$1"
+whoami
