@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# contains a custom header
+sudo apt-get update && sudo apt-get install nginx -y
+sudo echo "Hello World!" > index.html
+sudo cp index.html /var/www/html/index.nginx-debian.html
+setheader="add\_header X\-Served\-By \"$HOSTNAME\"\;location"
+sudo sed -i "s/location/$setheader/" /etc/nginx/sites-enabled/default
+sudo service nginx restart
